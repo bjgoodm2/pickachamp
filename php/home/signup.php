@@ -1,11 +1,11 @@
 <?php
 $servername = "pickachamp.web.engr.illinois.edu";
-$username = "pickacha_admin";
-$password = "Dickdick";
+$serverUser = "pickacha_admin";
+$serverPassword = "admin";
 $dbname = "pickacha_db";
 
 //Create connection
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli($servername, $serverUser, $serverPassword, $dbname);
 
 //Check connection
 if (mysqli_connect_error()){
@@ -22,17 +22,5 @@ $password = $_POST["password"];
 $sql = "INSERT INTO users VALUES (\"$username\", \"$password\")";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
-
-/*$sql = "SELECT * FROM users";
-$result = mysqli_query($conn, $sql);
-
-if (mysqli_num_rows($result) > 0){
-	while($row = mysqli_fetch_assoc($result)){
-		echo "BLHAHAHSHRLKEWHR: " . $row["name"] . "<br>";
-	}
-}
-else{
-		echo "0 results <br>";
-}*/
 
 mysqli_close($conn);
