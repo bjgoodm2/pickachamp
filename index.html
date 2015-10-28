@@ -9,52 +9,58 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	 <!-- Compiled and minified JavaScript -->
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+	 <script src="js/main.js"></script>
 		  
 	</head>
+    <div class = "loginsignup">
 	<body class = "teal lighten-5">
 	  <div class = "row" style="text-align:center">
 	  	<h1>Pick a champ</h1>
 	  </div>
 	  <div class="row">
 	  <center>Sign up</center>
-	    <form method = "post" class="col s12" action = "php/home/signup.php">
 	      <div class="row">
 	        <div class="input-field col s6">
-	          <input name = "username" id="username" type="text" class="validate">
+	          <input name = "username" id="signUsername" type="text" class="validate">
 	          <label for="username">username</label>
 	        </div>
 	        <div class="input-field col s6">
-	          <input name = "password" id="password" type="password"class="validate">
+	          <input name = "password" id="signPassword" type="password"class="validate">
 	          <label for="password">password</label>
 	        </div>
 	      </div>
 	      <div class = "row" style= "text-align: center">
-		        <button class="btn " type="submit" name="action">Sign up
+		        <button class="btn " id="signup" type="submit" name="action">Sign up
 				    
 				</button>
 			</div>
-	    </form>
 	    </div>
 	    <div class = "row">
 	    <center>Log In</center>
-	   	<form method = "post" class="col s12" action = "php/home/login.php">
 	      <div class="row">
 	        <div class="input-field col s6">
-	          <input name = "username" id="username" type="text" class="validate">
+	          <input name = "username" id="loginUsername" type="text" class="validate">
 	          <label for="username">username</label>
 	        </div>
 	        <div class="input-field col s6">
-	          <input name = "password" id="password" type="password" class="validate">
+	          <input name = "password" id="loginPassword" type="password" class="validate">
 	          <label for="password">password</label>
 	        </div>
 	      </div>
 	      	<div class = "row" style= "text-align: center">
-		        <button class="btn" type="submit" name="action">Log in
+		        <button class="btn" id="login" type="submit" name="action">Log in
 				    
 				</button>
 			</div>
-	    </form>
 	    </div>
+        </div>
+
+        <div class = "app">
+      		<input type = "text" id = "inputFav"></input>
+      		<button id  = "favChamp">Favorite it!!@@!</button>
+      		<input type = "text" id = "inputDelete"></input>
+      		<button id = "deleteChamp">Delete it!</button>
+        </div>
 
 
 
