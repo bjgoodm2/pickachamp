@@ -12,8 +12,6 @@ if (mysqli_connect_error()){
 	die("Database failed: " . mysqli_connect_error());
 }
 
-echo $username;
-echo "Connected successfully <br><br>";
 
 //Manipulate some data in the db
 $username = $_POST["username"];
@@ -23,4 +21,6 @@ $sql = "INSERT INTO users VALUES (\"$username\", \"$password\")";
 //echo $sql;
 $result = mysqli_query($conn, $sql);
 
-mysqli_close($conn);
+header("Location: ../app.php");
+
+
