@@ -12,56 +12,104 @@
 	 <script src="js/main.js"></script>
 		  
 	</head>
-    <div class = "loginsignup">
 	<body class = "teal lighten-5">
-	  <div class = "row" style="text-align:center">
-	  	<h1>Pick a champ</h1>
-	  </div>
-	  <div class="row">
-	  <center>Sign up</center>
-	      <div class="row">
-	        <div class="input-field col s6">
-	          <input name = "username" id="signUsername" type="text" class="validate">
-	          <label for="username">username</label>
-	        </div>
-	        <div class="input-field col s6">
-	          <input name = "password" id="signPassword" type="password"class="validate">
-	          <label for="password">password</label>
-	        </div>
-	      </div>
-	      <div class = "row" style= "text-align: center">
-		        <button class="btn " id="signup" type="submit" name="action">Sign up
-				    
-				</button>
-			</div>
-	    </div>
-	    <div class = "row">
-	    <center>Log In</center>
-	      <div class="row">
-	        <div class="input-field col s6">
-	          <input name = "username" id="loginUsername" type="text" class="validate">
-	          <label for="username">username</label>
-	        </div>
-	        <div class="input-field col s6">
-	          <input name = "password" id="loginPassword" type="password" class="validate">
-	          <label for="password">password</label>
-	        </div>
-	      </div>
-	      	<div class = "row" style= "text-align: center">
-		        <button class="btn" id="login" type="submit" name="action">Log in
-				    
-				</button>
-			</div>
-	    </div>
-        </div>
 
-        <div class = "app">
-      		<input type = "text" id = "inputFav"></input>
-      		<button id  = "favChamp">Favorite it!!@@!</button>
-      		<input type = "text" id = "inputDelete"></input>
-      		<button id = "deleteChamp">Delete it!</button>
-        </div>
+		<!-- Login/Sign Up Page -->
+		<div class = "loginsignup">
+			<div class = "row" style="text-align:center">
+				<h1>Pick a champ</h1>
+		  	</div>
+		  	<div class="row">
+		  		<center>Sign Up</center>
+			  	<div class="row">
+					<div class="input-field col s4">
+				  		<input name = "username" id="signUsername" type="text" class="validate">
+				  		<label for="username">Username</label>
+					</div>
+					<div class="input-field col s4">
+				  		<input name = "summoner-name" id="signSummoner" type="text" class="validate">
+				  		<label for="summoner-name">Summoner Name</label>
+					</div>
+					<div class="input-field col s4">
+						<input name = "password" id="signPassword" type="password"class="validate">
+						<label for="password">Password</label>
+					</div>
+			  	</div>
 
+			  	<div class = "row">
+					<center><button class="btn" id="signup" type="submit" name="action">Sign up</button>
+					</center>
+					<center id="signup-msg" style="color: red; padding-top: 10px"></center>
+				</div>
+			</div>
+			<div class = "row">
+				<center>Log In</center>
+			  	<div class="row">
+					<div class="input-field col s6">
+						<input name = "username" id="loginUsername" type="text" class="validate">
+						<label for="username">Username</label>
+					</div>
+					<div class="input-field col s6">
+						<input name = "password" id="loginPassword" type="password" class="validate">
+						<label for="password">Password</label>
+					</div>
+				</div>
+				<div class = "row">
+					<center><button class="btn" id="login" type="submit" name="action">Log in</button></center>
+					<center id="login-msg" style="color: red; padding-top: 10px"></center>
+				</div>
+			</div>
+		</div> <!-- End login signup section -->
+
+		<!-- App Page -->
+		<div class="app">
+			<nav>
+				<div class="nav-wrapper blue lighten-3">
+					<div class="brand-logo center">Pick A Champ</div>
+					<div class="left" id="summoner-name" style="padding-left:20px">Summoner Name</div>
+					<div class="right" id="login-name" style="padding-right:20px">Not logged in</div>
+				</div>
+			</nav>
+
+			<div class="row">
+				
+				<!-- Left column -->
+				<div class="col s6">
+
+					<!-- Champ info -->
+					<div id="champ-info">
+						<center><h5>Recommened Champ</h5></center>
+						<center><h5 id="champ-name">Champ Name</h5></center>
+
+						<center><img id="champ-pic" height="50%" width="50%" src="http://www.engraversnetwork.com/files/placeholder.jpg"></center>
+
+						<center><h6>Description</h6></center>
+						<center><p id="champ-description">This is the champ description</p></center>
+
+						<center><button>Choose a Random Champ</button></center>
+					</div>
+
+					<!-- Favorites -->
+					<div id="favorites" style="padding-top: 40px">
+						<center><h5>Favorite Champions</h5></center>
+						<center><ul id="fav-champ-list">
+							<li id="no-fav-champs">You have no favorite champions</li>
+						</ul></center>
+						<input type = "text" id = "inputFav"></input>
+						<center><button id  = "favChamp">Favorite it!</button></center>
+					</div>
+				</div>
+
+				<!-- Right column -->
+				<div class="col s6">
+					<center><h5>Statistics</h5></center>
+					<center><h6>Filter Options</h6></center>
+
+					<center><h5>Builds</h5></center>
+				</div>
+
+			</div>
+		</div> <!-- End app section -->
 
 
 	</body>
