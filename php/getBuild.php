@@ -1,13 +1,10 @@
 <?php
 
 	include('simple_html_dom.php');
+	
+	$champName = $_GET["champName"];
 
-	/* TODO: $url = 'http://www.probuilds.net/champions/'; 
-	 *       $champName = 'INSERT CHAMPION NAME HERE';
-	 *       $url .= $champName;
-	 *       $html = file_get_html($url);
-	 */
-	$html = file_get_html('http://www.probuilds.net/champions/Riven');
+	$html = file_get_html('http://www.probuilds.net/champions/' . $champName);
 	$array = array();
 	foreach($html->find('.final-builds') as $element){
 		$x = 0;

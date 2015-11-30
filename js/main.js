@@ -98,13 +98,33 @@ $(document).ready(function(){
         });
     });
 
+	$('#history_button').click(function() {
+    	$.post("../php/recommend.php", {action: "match_history", summoner_name: user.summoner}, function(data) {
+			displayChamp(data);
+        });
+    });
+
+	$('#role_button').click(function() {
+		primary = $('input[name=primary]:checked').val();
+		secondary = $('input[name=secondary]:checked').val();
+
+    	$.post("../php/recommend.php", {action: "role", primary_role: primary, secondary_role: secondary}, function(data) {
+			displayChamp(data);
+        });
+    });
+
+	$('#random-button').click(function(){
+		displayChamp("Azir");
+	});
+
+
 	function displayChamp(champName) {
 
 		//Display champ name
 		$('#champ-name').text(champName);
 
 		//Display champ pictures
-		//TODO
+		$('#champ-pic').attr('src', 'http://ddragon.leagueoflegends.com/cdn/5.23.1/img/champion/' + champName + '.png');
 
 		//Display champ description
         var key = "7fd3b97d-df0c-4ced-b7d8-810a89c8e874";
@@ -127,13 +147,15 @@ $(document).ready(function(){
 		$.ajax({
 			url: '../php/getbuild.php',
 			type: 'GET',
+			data: {"champName": champName},
 			dataType: 'json',
 			success: function(data) {
-				console.log(data);
-				console.log("data at 0 is" + data[0]);
+				$('#build-pics').html('');
+				$('#build-pics').append('<li>');
 				for (var i = 0; i < data.length; i++){
-					$('#build-pics').append("<li><img src=\"" + data[i] + "\"></li>");
+					$('#build-pics').append("<img src=\"" + data[i] + "\">");
 				}
+				$('#build-pics').append('</li>');
 			}
 		});
 

@@ -12,7 +12,7 @@
 	 <script src="js/main.js"></script>
 		  
 	</head>
-	<body class = "teal lighten-5">
+	<body class = "grey lighten-5">
 
 		<!-- Login/Sign Up Page -->
 		<div class = "loginsignup">
@@ -37,7 +37,7 @@
 			  	</div>
 
 			  	<div class = "row">
-					<center><button class="btn" id="signup" type="submit" name="action">Sign up</button>
+					<center><button class="btn" id="signup" type="submit" name="action" style="background-color: #90caf9">Sign up</button>
 					</center>
 					<center id="signup-msg" style="color: red; padding-top: 10px"></center>
 				</div>
@@ -55,7 +55,7 @@
 					</div>
 				</div>
 				<div class = "row">
-					<center><button class="btn" id="login" type="submit" name="action">Log in</button></center>
+					<center><button class="btn" id="login" type="submit" name="action" style="background-color: #90caf9">Log in</button></center>
 					<center id="login-msg" style="color: red; padding-top: 10px"></center>
 				</div>
 			</div>
@@ -79,19 +79,63 @@
 
 					<!-- Champ info -->
 					<div id="champ-info">
-						<center><h5>Recommened Champ</h5></center>
-						<center><h5 id="champ-name">Champ Name</h5></center>
+						<center><h5 id="champ-name">Champ name will show here!</h5></center>
 
 						<center><img id="champ-pic" height="50%" width="50%" src="http://www.engraversnetwork.com/files/placeholder.jpg"></center>
 
 						<center><h6>Description</h6></center>
-						<center><p id="champ-description">This is the champ description</p></center>
+						<center><p id="champ-description">Champion description will show here!</p></center>
 
-						<center><button>Choose a Random Champ</button></center>
+						<center><button id="random-button">Choose a Random Champ</button></center>
+
+						<br>
+
+						<center><button id="history_button">Recommend Champ by Match History</button></center>
+						<br>
+
+						<center>
+							<button id="role_button">Recommend Champ by Role</button>
+
+							<h6>Primary Role</h6>
+							<input id="b1" type="radio" name="primary" value="Assassin">
+							<label for="b1">Assassin</label>
+							<input id="b2" type="radio" name="primary" value="Fighter">
+							<label for="b2">Fighter</label>
+							<input id="b3" type="radio" name="primary" value="Mage">
+							<label for="b3">Mage</label>
+							<input id="b4" type="radio" name="primary" value="Support">
+							<label for="b4">Support</label>
+							<input id="b5" type="radio" name="primary" value="Tank">
+							<label for="b5">Tank</label>
+							<input id="b6" type="radio" name="primary" value="Marksman">
+							<label for="b6">Marksman</label>
+
+							<h6>Secondary Role</h6>
+							<input id="b1s" type="radio" name="secondary" value="Assassin">
+							<label for="b1s">Assassin</label>
+							<input id="b2s" type="radio" name="secondary" value="Fighter">
+							<label for="b2s">Fighter</label>
+							<input id="b3s" type="radio" name="secondary" value="Mage">
+							<label for="b3s">Mage</label>
+							<input id="b4s" type="radio" name="secondary" value="Support">
+							<label for="b4s">Support</label>
+							<input id="b5s" type="radio" name="secondary" value="Tank">
+							<label for="b5s">Tank</label>
+							<input id="b6s" type="radio" name="secondary" value="Marksman">
+							<label for="b6s">Marksman</label>
+						</center>
+
 					</div>
+				</div>
+
+				<!-- Right column -->
+				<div class="col s6">
+
+					<center><h5>Popular Builds</h5></center>
+					<center><ul id="build-pics">Champ build will display here!</ul></center>
 
 					<!-- Favorites -->
-					<div id="favorites" style="padding-top: 40px">
+					<div id="favorites">
 						<center><h5>Favorite Champions</h5></center>
 						<center><ul id="fav-champ-list">
 							<li id="no-fav-champs">You have no favorite champions</li>
@@ -99,18 +143,14 @@
 						<input type = "text" id = "inputFav"></input>
 						<center><button id  = "favChamp">Favorite it!</button></center>
 					</div>
+
 				</div>
-
-				<!-- Right column -->
-				<div class="col s6">
-					<center><h5>Statistics</h5></center>
-					<center><h6>Filter Options</h6></center>
-
-					<center><h5>Builds</h5></center>
-					<ul id="build-pics">No build displayed</ul>
-				</div>
-
 			</div>
+
+			<br>
+			<center><h5>Statistics</h5></center>
+			<center><h6>Filter Options</h6></center>
+
 		</div> <!-- End app section -->
 
 
