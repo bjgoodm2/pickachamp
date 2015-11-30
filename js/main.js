@@ -98,4 +98,46 @@ $(document).ready(function(){
         });
     });
 
+	function displayChamp(champName) {
+
+		//Display champ name
+		$('#champ-name').text(champName);
+
+		//Display champ pictures
+		//TODO
+
+		//Display champ description
+        var key = "7fd3b97d-df0c-4ced-b7d8-810a89c8e874";
+        $.ajax({
+            url: 'https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=lore&api_key=7fd3b97d-df0c-4ced-b7d8-810a89c8e874',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+            },
+            success: function (json) {
+            	var id = json.data[champName].lore;
+            	document.getElementById("champ-description").innerHTML = id;
+            },
+            error: function (XMLHttpRequest, textStatus, errorThrown) {
+				console.log("error getting champ description");
+            }
+        });            
+
+		//Display champ builds
+		$.ajax({
+			url: '../php/getbuild.php',
+			type: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				console.log(data);
+				console.log("data at 0 is" + data[0]);
+				for (var i = 0; i < data.length; i++){
+					$('#build-pics').append("<li><img src=\"" + data[i] + "\"></li>");
+				}
+			}
+		});
+
+		//Display champ stats
+		//TODO
+	}
 });
