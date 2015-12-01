@@ -2,6 +2,46 @@
 <html>
 
 <style>
+
+[type="radio"]:checked + label:after {
+  border-radius: 50%;
+  border: 2px solid #000000 !important;
+  background-color: #90caf9 !important;
+  z-index: 0;
+  -webkit-transform: scale(1.02);
+  -moz-transform: scale(1.02);
+  -ms-transform: scale(1.02);
+  -o-transform: scale(1.02);
+  transform: scale(1.02); }
+
+.input-field label {
+     color: #000 !important;
+}
+
+.input-field input[type=text]:focus {
+     border-bottom: 1px solid #000 !important;
+     box-shadow: 0 1px 0 0 #000 !important;
+}
+
+.input-field input[type=password]:focus {
+     border-bottom: 1px solid #000 !important;
+     box-shadow: 0 1px 0 0 #000 !important;
+}
+
+::-webkit-input-placeholder { / WebKit, Blink, Edge /
+    color:    gray !important;
+}
+:-moz-placeholder { / Mozilla Firefox 4 to 18 /
+   color:    gray !important;
+   opacity:  1;
+}
+::-moz-placeholder { / Mozilla Firefox 19+ /
+   color:    gray !important;
+   opacity:  1;
+}
+:-ms-input-placeholder { / Internet Explorer 10-11 /
+   color:    gray !important;
+}
 text {
   font: 10px sans-serif;
 }
@@ -71,7 +111,7 @@ text {
 			  	</div>
 
 			  	<div class = "row">
-					<center><button class="btn" id="signup" type="submit" name="action" style="background-color: #90caf9">Sign up</button>
+					<center><button class="btn waves-effect waves-light" id="signup" type="submit" name="action" style="background-color: #90caf9">Sign up</button>
 					</center>
 					<center id="signup-msg" style="color: red; padding-top: 10px"></center>
 				</div>
@@ -89,7 +129,7 @@ text {
 					</div>
 				</div>
 				<div class = "row">
-					<center><button class="btn" id="login" type="submit" name="action" style="background-color: #90caf9">Log in</button></center>
+					<center><button class="btn waves-effect waves-light" id="login" type="submit" name="action" style="background-color: #90caf9">Log in</button></center>
 					<center id="login-msg" style="color: red; padding-top: 10px"></center>
 				</div>
 			</div>
@@ -120,15 +160,15 @@ text {
 						<center><h6>Description</h6></center>
 						<center><p id="champ-description">Champion description will show here!</p></center>
 
-						<center><button id="random-button">Choose a Random Champ</button></center>
+						<!--<center><button id="random-button" class="btn waves-effect waves-light blue lighten-3">Choose a Random Champ</button></center> -->
 
 						<br>
 
-						<center><button id="history_button">Recommend Champ by Match History</button></center>
+						<center><button id="history_button" class="btn waves-effect waves-light blue lighten-3">Recommend Champ by Match History</button></center>
 						<br>
 
 						<center>
-							<button id="role_button">Recommend Champ by Role</button>
+							<button id="role_button" class="btn waves-effect waves-light blue lighten-3">Recommend Champ by Role</button>
 
 							<h6>Primary Role</h6>
 							<input id="b1" type="radio" name="primary" value="Assassin">
@@ -175,7 +215,7 @@ text {
 							<li id="no-fav-champs">You have no favorite champions</li>
 						</ul></center>
 						<input type = "text" id = "inputFav"></input>
-						<center><button id  = "favChamp">Favorite it!</button></center>
+						<center><button id  = "favChamp" class="btn waves-effect waves-light blue lighten-3">Favorite it!</button></center>
 					</div>
 
 				</div>
@@ -185,9 +225,9 @@ text {
 			<center><h5>Statistics</h5></center>
 			<center><h6>Filter Options</h6></center>
 
-<button class = "graph1">Click</button>
+<button class = "graph1 btn waves-effect waves-light blue lighten-3">Click</button>
 
-<button class = "addbar">Add Data-Point</button>
+<button class = "addbar btn waves-effect waves-light blue lighten-3">Add Data-Point</button>
 
 <form><input id = "champ" type = "text" placeholder = "Champion Name"></input></form>
 <form><input id = "high-rank" type = "text" placeholder = "Highest Rank"></input></form>
