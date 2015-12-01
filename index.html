@@ -1,5 +1,37 @@
 <!DOCTYPE html>
 <html>
+
+<style>
+text {
+  font: 10px sans-serif;
+}
+.bar {
+  fill: steelblue;
+}
+
+.bar:hover {
+  fill: brown;
+}
+
+.axis {
+  font: 10px sans-serif;
+}
+
+.axis path,
+.axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+.y axis {
+	font: 20px sans-serif;
+}
+
+.x.axis path {
+  display: none;
+}
+</style>
 	<head>
 		<Title>Pick A Champ</Title>
 
@@ -9,7 +41,9 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	 <!-- Compiled and minified JavaScript -->
 	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.1/js/materialize.min.js"></script>
+	 
 	 <script src="js/main.js"></script>
+	 
 		  
 	</head>
 	<body class = "grey lighten-5">
@@ -151,8 +185,49 @@
 			<center><h5>Statistics</h5></center>
 			<center><h6>Filter Options</h6></center>
 
+<button class = "graph1">Click</button>
+
+<button class = "addbar">Add Data-Point</button>
+
+<form><input id = "champ" type = "text" placeholder = "Champion Name"></input></form>
+<form><input id = "high-rank" type = "text" placeholder = "Highest Rank"></input></form>
+<form><input id = "low-rank" type = "text" placeholder = "Lowest Rank"></input></form>
+
+
+  <form action="#">
+    <p>
+      <input name="group1" type="radio" id="win-rate" />
+      <label for="win-rate">Win Rate</label>
+    </p>
+    <p>
+      <input name="group1" type="radio" id="popularity" />
+      <label for="popularity">Popularity</label>
+    </p>
+
+
+  </form>
+
+    <form action="#">
+    <p>
+      <input name="group2" type="radio" id="bars" />
+      <label for="bars">Bar</label>
+    </p>
+    <p>
+      <input name="group2" type="radio" id="bubbles" />
+      <label for="bubbles">Bubble</label>
+    </p>
+
+
+  </form>
+
+<div class="chart"></div>
+</body>
+
+        
 		</div> <!-- End app section -->
 
 
 	</body>
+
+	<script src="//d3js.org/d3.v3.min.js"></script>
 </html>
