@@ -15,6 +15,7 @@ $(document).ready(function(){
         var password = $("#loginPassword").val();
         $.post("../php/app.php", {action: "login", username: username, password: password}, function(data)  {
         	console.log("logging in");
+			console.log(data);
 	        if (data == "True") {
 
 				//get summoner name for the corresponding user
@@ -163,7 +164,7 @@ $(document).ready(function(){
 
 		//Display champ builds
 		$.ajax({
-			url: '../php/getBuild.php',
+			url: '../php/getBuildGG.php',
 			type: 'GET',
 			data: {"champName": champName},
 			dataType: 'json',
