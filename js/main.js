@@ -51,6 +51,9 @@ $(document).ready(function(){
 		$('.loginsignup').hide();
 		$('.app').show();
 
+		//Keep the ratings hidden still
+		$('#rate-champ').hide();
+
 		//Display the username and summoner name
 		$('#login-name').text(user.username);
 		$('#summoner-name').text(user.summoner);
@@ -104,6 +107,12 @@ $(document).ready(function(){
         });
     });
 
+	$('#history_rate_button').click(function() {
+    	$.post("../php/recommend.php", {action: "match_history_rate", summoner_name: user.summoner}, function(data) {
+			displayChamp(data);
+        });
+    });
+
 	$('#role_button').click(function() {
 		primary = $('input[name=primary]:checked').val();
 		secondary = $('input[name=secondary]:checked').val();
@@ -117,6 +126,15 @@ $(document).ready(function(){
 		displayChamp("Azir");
 	});
 
+	$('#rate-button').click(function(){
+		var champName = $('#rate-button').val();
+		var newRating = $('input[name=rating]:checked').val();
+		$.post("../php/app.php", {action: "updateRating", champName: champName, newRating: newRating}, function(data) {
+			console.log(data);
+			displayRating(champName);
+        });
+	
+	});
 
 	function displayChamp(champName) {
 
@@ -159,9 +177,25 @@ $(document).ready(function(){
 			}
 		});
 
-		
-		
+		//Display champ rating system
+		$('#rate-champ').show();	
+		displayRating(champName);	
+		$('#rate-button').attr('value', champName);	
+	
 	}
+
+	function displayRating(champName) {
+			$.post("../php/app.php", {action: "getRating", champName: champName}, function(data) {
+			if (data == "0 results") {
+				console.log("something's wrong");
+			} else {
+				console.log("data:" +data);
+				$('#champ-rating').text('Rating: ' + data);
+			}
+        });
+
+	}
+
 
 	//champion stats
 	    var currentDataSet;

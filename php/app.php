@@ -55,6 +55,50 @@ if($_POST['action'] === "signup") {
 	}
 }
 
+if($_POST['action'] === "getRating") {
+	$champName = $_POST["champName"];
+	$sql = "SELECT name, rating, similar1, similar2, similar3 FROM championList";
+    $result = $conn->query($sql);
+ 
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            if(strtolower($row["name"]) == strtolower($champName)){
+                echo $row["rating"];
+            }
+        }
+    } else {
+        echo "0 results";
+    }
+	//return 0;
+}
+
+if($_POST['action'] === "updateRating"){
+	$champName = $_POST["champName"];
+	$newRating = $_POST["newRating"];	
+	$sql = "SELECT name, rating, numRatings FROM championList";
+    $result = $conn->query($sql);
+    if ($result->num_rows > 0) {
+        // update each row
+        while($row = $result->fetch_assoc()) {
+            $name = $row["name"];
+            if ($name == $champName) {
+                $sum = $row["rating"] * $row["numRatings"];
+                $sum = $sum + $newRating;
+                $sum = $sum/($row["numRatings"] + 1);
+                $sql = "UPDATE championList SET rating=" . $sum . ", numRatings=" . ($row["numRatings"] + 1) . " WHERE name=\"$name\"";
+                echo '{'.$sql.'}';
+                if ($conn->query($sql) === TRUE) {
+                    echo "Record updated successfully";
+                } else {
+                    echo "Error updating record: " . $conn->error;
+                }
+            }
+        }
+    } else {
+        //echo "0 results";
+    }
+}
 
 if($_POST['action'] === "favChamp") {
 	$champ = $_POST["favoriteChamp"];
