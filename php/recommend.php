@@ -44,7 +44,7 @@ function recommend_by_match_history($summoner_name)
  */
 function recommend_by_role($primary_role, $secondary_role)
 {
-    $response = file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=tags&api_key=87258093-0098-49d5-8e90-5f0bcad77964');
+    $response = file_get_contents('https://global.api.pvp.net/api/lol/static-data/na/v1.2/champion?champData=tags&api_key=7fd3b97d-df0c-4ced-b7d8-810a89c8e874');
     $arr = json_decode($response, true);
  
     $champions = [];
