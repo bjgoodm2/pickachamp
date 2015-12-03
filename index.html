@@ -157,18 +157,26 @@ text {
 
 						<center><img id="champ-pic" height="50%" width="50%" src="http://www.engraversnetwork.com/files/placeholder.jpg"></center>
 
+						<center><h6 id="champ-rating">Rating: 0</h6></center>
+
 						<center><h6>Description</h6></center>
 						<center><p id="champ-description">Champion description will show here!</p></center>
 
 						<!--<center><button id="random-button" class="btn waves-effect waves-light blue lighten-3">Choose a Random Champ</button></center> -->
 
+	
+						<center><h6>Recommend Champ by...</h6></center>
+
+						<br>
+						<center><button id="history_button" class="btn waves-effect waves-light blue lighten-3">Match History/Win Rate</button></center>
 						<br>
 
-						<center><button id="history_button" class="btn waves-effect waves-light blue lighten-3">Recommend Champ by Match History</button></center>
+						<center><button id="history_rate_button" class="btn waves-effect waves-light blue lighten-3">Match History/User Ratings</button></center>
+
 						<br>
 
 						<center>
-							<button id="role_button" class="btn waves-effect waves-light blue lighten-3">Recommend Champ by Role</button>
+							<button id="role_button" class="btn waves-effect waves-light blue lighten-3">Role</button>
 
 							<h6>Primary Role</h6>
 							<input id="b1" type="radio" name="primary" value="Assassin">
@@ -225,43 +233,60 @@ text {
 			<center><h5>Statistics</h5></center>
 			<center><h6>Filter Options</h6></center>
 
-<button class = "graph1 btn waves-effect waves-light blue lighten-3">Click</button>
+			<button class = "graph1 btn waves-effect waves-light blue lighten-3">Click</button>
 
-<button class = "addbar btn waves-effect waves-light blue lighten-3">Add Data-Point</button>
+			<button class = "addbar btn waves-effect waves-light blue lighten-3">Add Data-Point</button>
 
-<form><input id = "champ" type = "text" placeholder = "Champion Name"></input></form>
-<form><input id = "high-rank" type = "text" placeholder = "Highest Rank"></input></form>
-<form><input id = "low-rank" type = "text" placeholder = "Lowest Rank"></input></form>
-
-
-  <form action="#">
-    <p>
-      <input name="group1" type="radio" id="win-rate" />
-      <label for="win-rate">Win Rate</label>
-    </p>
-    <p>
-      <input name="group1" type="radio" id="popularity" />
-      <label for="popularity">Popularity</label>
-    </p>
+			<form><input id = "champ" type = "text" placeholder = "Champion Name"></input></form>
+			<form><input id = "high-rank" type = "text" placeholder = "Highest Rank"></input></form>
+			<form><input id = "low-rank" type = "text" placeholder = "Lowest Rank"></input></form>
 
 
-  </form>
-
-    <form action="#">
-    <p>
-      <input name="group2" type="radio" id="bars" />
-      <label for="bars">Bar</label>
-    </p>
-    <p>
-      <input name="group2" type="radio" id="bubbles" />
-      <label for="bubbles">Bubble</label>
-    </p>
+			<form action="#">
+				<p>
+				  <input name="group1" type="radio" id="win-rate" />
+				  <label for="win-rate">Win Rate</label>
+				</p>
+				<p>
+				  <input name="group1" type="radio" id="popularity" />
+				  <label for="popularity">Popularity</label>
+				</p>
 
 
-  </form>
+			  </form>
 
-<div class="chart"></div>
-</body>
+				<form action="#">
+				<p>
+				  <input name="group2" type="radio" id="bars" />
+				  <label for="bars">Bar</label>
+				</p>
+				<p>
+				  <input name="group2" type="radio" id="bubbles" />
+				  <label for="bubbles">Bubble</label>
+				</p>
+
+
+			  </form>
+
+			<div class="chart"></div>
+
+			<br>	
+	
+			<div id="rate-champ">
+				<center>
+					<button id="rate-button" class="btn waves-effect waves-light blue lighten-3">Rate this champion!</button>
+					<br><input id="r1" type="radio" name="rating" value="1">
+					<label for="r1">1</label>
+					<br><input id="r2" type="radio" name="rating" value="2">
+					<label for="r2">2</label>
+					<br><input id="r3" type="radio" name="rating" value="3" checked>
+					<label for="r3">3</label>
+					<br><input id="r4" type="radio" name="rating" value="4">
+					<label for="r4">4</label>
+					<br><input id="r5" type="radio" name="rating" value="5">
+					<label for="r5">5</label>
+				</center>	
+			</div>
 
         
 		</div> <!-- End app section -->

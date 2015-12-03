@@ -15,6 +15,7 @@ $(document).ready(function(){
         var password = $("#loginPassword").val();
         $.post("../php/app.php", {action: "login", username: username, password: password}, function(data)  {
         	console.log("logging in");
+			console.log(data);
 	        if (data == "True") {
 
 				//get summoner name for the corresponding user
@@ -50,6 +51,9 @@ $(document).ready(function(){
 	    user = new User(username, password, summoner);
 		$('.loginsignup').hide();
 		$('.app').show();
+
+		//Keep the ratings hidden still
+		$('#rate-champ').hide();
 
 		//Display the username and summoner name
 		$('#login-name').text(user.username);
@@ -104,6 +108,12 @@ $(document).ready(function(){
         });
     });
 
+	$('#history_rate_button').click(function() {
+    	$.post("../php/recommend.php", {action: "match_history_rate", summoner_name: user.summoner}, function(data) {
+			displayChamp(data);
+        });
+    });
+
 	$('#role_button').click(function() {
 		primary = $('input[name=primary]:checked').val();
 		secondary = $('input[name=secondary]:checked').val();
@@ -117,6 +127,16 @@ $(document).ready(function(){
 		displayChamp("Azir");
 	});
 
+	$('#rate-button').click(function(){
+		var champName = $('#rate-button').val();
+		var newRating = $('input[name=rating]:checked').val();
+		$.post("../php/app.php", {action: "updateRating", champName: champName, newRating: newRating}, function(data) {
+			console.log(data);
+			displayRating(champName);
+			$('#rate-champ').html('<center>Thanks for your ratings!</center>');
+        });
+	
+	});
 
 	function displayChamp(champName) {
 
@@ -145,7 +165,7 @@ $(document).ready(function(){
 
 		//Display champ builds
 		$.ajax({
-			url: '../php/getBuild.php',
+			url: '../php/getBuildGG.php',
 			type: 'GET',
 			data: {"champName": champName},
 			dataType: 'json',
@@ -159,9 +179,25 @@ $(document).ready(function(){
 			}
 		});
 
-		
-		
+		//Display champ rating system
+		$('#rate-champ').show();	
+		displayRating(champName);	
+		$('#rate-button').attr('value', champName);	
+	
 	}
+
+	function displayRating(champName) {
+			$.post("../php/app.php", {action: "getRating", champName: champName}, function(data) {
+			if (data == "0 results") {
+				console.log("something's wrong");
+			} else {
+				console.log("data:" +data);
+				$('#champ-rating').text('Rating: ' + data);
+			}
+        });
+
+	}
+
 
 	//champion stats
 	    var currentDataSet;
@@ -403,4 +439,11 @@ $(document).ready(function(){
         }
         d3.select(self.frameElement).style("height", diameter + "px");
     }
+
+	$(document).ajaxStart(function () {
+		$(document.body).css({ 'cursor': 'wait' })
+	});
+	$(document).ajaxComplete(function () {
+		$(document.body).css({ 'cursor': 'default' })
+	});
 });
