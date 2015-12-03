@@ -133,6 +133,7 @@ $(document).ready(function(){
 		$.post("../php/app.php", {action: "updateRating", champName: champName, newRating: newRating}, function(data) {
 			console.log(data);
 			displayRating(champName);
+			$('#rate-champ').html('<center>Thanks for your ratings!</center>');
         });
 	
 	});
@@ -438,4 +439,11 @@ $(document).ready(function(){
         }
         d3.select(self.frameElement).style("height", diameter + "px");
     }
+
+	$(document).ajaxStart(function () {
+		$(document.body).css({ 'cursor': 'wait' })
+	});
+	$(document).ajaxComplete(function () {
+		$(document.body).css({ 'cursor': 'default' })
+	});
 });
